@@ -309,7 +309,7 @@ Built with ❤️ using
     )
 
 # Launch App
-print("
+
 if __name__ == "__main__":
     print("=" * 50)
     print("APP STARTING")
