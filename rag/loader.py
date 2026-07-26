@@ -5,7 +5,7 @@ import pypdf
 print("2 - pypdf imported")
 
 print("3")
-from langchain_community.document_loaders.pdf import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 print("4 - PyPDFLoader imported")
 
 def load_pdf(file_path: str):
