@@ -298,7 +298,12 @@ Built with ❤️ using
 # Launch App
 
 if __name__ == "__main__":
+    print("PORT =", os.environ.get("PORT"))
+    print("Starting Gradio...")
+
     demo.launch(
         server_name="0.0.0.0",
-        server_port=int(os.environ.get("PORT", 7860))
+        server_port=int(os.environ.get("PORT", "7860")),
+        show_error=True,
+        quiet=False
     )
