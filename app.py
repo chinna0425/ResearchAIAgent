@@ -1,12 +1,25 @@
+print("1")
 import os
+
+print("2")
 import gradio as gr
 
+print("3")
 from rag.loader import load_pdf
+
+print("4")
 from rag.splitter import split_documents
+
+print("5")
 from rag.vectorstore import create_vectorstore
+
+print("6")
 from rag.tools import HybridRetriever
+
+print("7")
 from rag.agent import HybridResearchAgent
 
+print("8 - imports finished")
 
 # Global Variables
 
@@ -296,14 +309,17 @@ Built with ❤️ using
     )
 
 # Launch App
-
+print("
 if __name__ == "__main__":
+    print("=" * 50)
+    print("APP STARTING")
     print("PORT =", os.environ.get("PORT"))
-    print("Starting Gradio...")
+    print("=" * 50)
 
     demo.launch(
         server_name="0.0.0.0",
-        server_port=int(os.environ.get("PORT", "7860")),
+        server_port=int(os.environ.get("PORT", 7860)),
         show_error=True,
+        debug=True,
         quiet=False
     )
