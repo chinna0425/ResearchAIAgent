@@ -1,5 +1,8 @@
+print("loader.py started")
+
 from langchain_community.document_loaders import PyPDFLoader
 
+print("PyPDFLoader imported")
 
 def load_pdf(file_path: str):
     """
