@@ -11,7 +11,7 @@ def get_embedding_model():
     print("Loading Gemini Embedding Model...")
 
     embedding_model = GoogleGenerativeAIEmbeddings(
-        model="models/text-embedding-004",
+        model="gemini-embedding-2-preview",
         google_api_key=os.getenv("GOOGLE_API_KEY")
     )
 
