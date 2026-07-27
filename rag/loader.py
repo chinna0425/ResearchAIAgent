@@ -1,12 +1,5 @@
-print("loader.py started")
-
-print("1")
-
 from pypdf import PdfReader
-print("Pypdf Pdf Reader")
 from langchain_core.documents import Document
-
-print("Document")
 
 def load_pdf(file_path: str):
     """
