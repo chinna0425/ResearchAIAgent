@@ -2,12 +2,11 @@
 
 A Hybrid Research AI Agent built with LangChain that allows users to upload PDF documents, ask questions about them, and retrieve relevant information. If the required information is not available in the uploaded document, the agent can search the web using Tavily and generate a complete response using Groq LLM.
 
-## Live 
+## Live Demo
 
-```
-Live :- https://researchaiagent.onrender.com
-```
+**Application:** https://researchaiagent.onrender.com
 
+**GitHub Repository:** https://github.com/chinna0425/ResearchAIAgent.git
 ## Features
 
 - Upload PDF documents
