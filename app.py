@@ -50,14 +50,19 @@ def upload_pdf(pdf, progress=gr.Progress()):
     chunks = split_documents(pages)
 
     progress(0.60, desc="Creating vector database...")
+    print("Reached here 60")
 
     vector_store = create_vectorstore(chunks)
+    print("Completed 60")
 
     progress(0.80, desc="Initializing AI...")
+    print("Completed 80")
 
     retriever = HybridRetriever(vector_store)
+    print("Completed retriever")
 
     agent = HybridResearchAgent(retriever)
+    print("completed agent")
 
     progress(1.0, desc="Completed")
     filename = os.path.basename(pdf.name)
