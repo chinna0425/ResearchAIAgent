@@ -1,20 +1,36 @@
 print("loader.py started")
 
 print("1")
-import pypdf
-print("2 - pypdf imported")
 
-print("3")
-from langchain_community.document_loaders import PyPDFLoader
-print("4 - PyPDFLoader imported")
+from pypdf import PdfReader
+print("Pypdf Pdf Reader")
+from langchain_core.documents import Document
+
+print("Document")
 
 def load_pdf(file_path: str):
     """
-    Loads a PDF and returns all pages as LangChain Documents.
+    Loads a PDF and returns a list of LangChain Document objects.
     """
 
-    loader = PyPDFLoader(file_path)
+    reader = PdfReader(file_path)
 
-    pages = loader.load()
+    documents = []
 
-    return pages
+    for page_number, page in enumerate(reader.pages):
+        text = page.extract_text()
+
+        if text is None:
+            text = ""
+
+        documents.append(
+            Document(
+                page_content=text,
+                metadata={
+                    "source": file_path,
+                    "page": page_number + 1
+                }
+            )
+        )
+
+    return documents
