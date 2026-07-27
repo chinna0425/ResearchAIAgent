@@ -1,12 +1,20 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+import os
+
+from dotenv import load_dotenv
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+load_dotenv()
+
 
 def get_embedding_model():
-    print("Creating HuggingFaceEmbeddings...", flush=True)
 
-    embedding_model = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    print("Loading Gemini Embedding Model...")
+
+    embedding_model = GoogleGenerativeAIEmbeddings(
+        model="models/text-embedding-004",
+        google_api_key=os.getenv("GOOGLE_API_KEY")
     )
 
-    print("HuggingFaceEmbeddings created", flush=True)
+    print("Gemini Embedding Model Ready!")
 
     return embedding_model
