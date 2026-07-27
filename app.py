@@ -1,30 +1,14 @@
-print("1")
 import os
-
-print("2")
 import gradio as gr
-
-print("3")
 from rag.loader import load_pdf
-
-print("4")
 from rag.splitter import split_documents
-
-print("5")
 from rag.vectorstore import create_vectorstore
-
-print("6")
 from rag.tools import HybridRetriever
-
-print("7")
 from rag.agent import HybridResearchAgent
-
-print("8 - imports finished")
 
 # Global Variables
 
 agent = None
-
 
 # Upload PDF
 
@@ -50,19 +34,14 @@ def upload_pdf(pdf, progress=gr.Progress()):
     chunks = split_documents(pages)
 
     progress(0.60, desc="Creating vector database...")
-    print("Reached here 60")
 
     vector_store = create_vectorstore(chunks)
-    print("Completed 60")
 
     progress(0.80, desc="Initializing AI...")
-    print("Completed 80")
 
     retriever = HybridRetriever(vector_store)
-    print("Completed retriever")
 
     agent = HybridResearchAgent(retriever)
-    print("completed agent")
 
     progress(1.0, desc="Completed")
     filename = os.path.basename(pdf.name)
